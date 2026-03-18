@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b5b6jkodtcl3v"]
+
+[ext_resource type="Script" uid="uid://dd3n1spiul0b" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=515319257]
+script = ExtResource("1_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1597478865]
+
+[node name="Button" type="Button" parent="." unique_id=1701280823]
+offset_left = -130.0
+offset_top = -52.0
+offset_right = 127.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 64
+text = "Click"
+
+[node name="Label" type="Label" parent="." unique_id=176090334]
+offset_left = -130.0
+offset_top = -477.0
+offset_right = 63.0
+offset_bottom = -389.0
+theme_override_font_sizes/font_size = 64
+text = "Clicks:"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
