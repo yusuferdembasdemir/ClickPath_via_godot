@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c6mvub2i3wmek"]
+
+[ext_resource type="Script" uid="uid://rq8i3slqjmcr" path="res://scenes/shopsceene.gd" id="1_4n0su"]
+[ext_resource type="Texture2D" uid="uid://b2du4m6hygmbp" path="res://art/ucheta.PNG" id="1_7vcoo"]
+[ext_resource type="Texture2D" uid="uid://b1rrh58mndpn" path="res://art/zs-removebg-preview.png" id="2_1oag3"]
+
+[node name="Shopsceene" type="Node2D" unique_id=1451452833]
+script = ExtResource("1_4n0su")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1199194449]
+
+[node name="Ucheta" type="Sprite2D" parent="." unique_id=304713322]
+position = Vector2(1, -460)
+texture = ExtResource("1_7vcoo")
+
+[node name="Back" type="TextureRect" parent="." unique_id=1758784951]
+offset_left = -894.0
+offset_top = -515.0
+offset_right = -564.0
+offset_bottom = -293.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1oag3")
+
+[node name="Button" type="Button" parent="Back" unique_id=1448540225]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 330.0
+offset_bottom = 218.0
+flat = true
+
+[connection signal="pressed" from="Back/Button" to="." method="_on_button_pressed"]
