@@ -1,23 +1,27 @@
 [gd_scene format=3 uid="uid://c6mvub2i3wmek"]
 
-[ext_resource type="Script" uid="uid://rq8i3slqjmcr" path="res://scenes/shopsceene.gd" id="1_4n0su"]
+[ext_resource type="Script" uid="uid://rq8i3slqjmcr" path="res://codes/shopsceene.gd" id="1_4n0su"]
 [ext_resource type="Texture2D" uid="uid://b2du4m6hygmbp" path="res://art/ucheta.PNG" id="1_7vcoo"]
 [ext_resource type="Texture2D" uid="uid://b1rrh58mndpn" path="res://art/zs-removebg-preview.png" id="2_1oag3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n0su"]
+bg_color = Color(0.6, 0, 0, 1)
 
 [node name="Shopsceene" type="Node2D" unique_id=1451452833]
 script = ExtResource("1_4n0su")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1199194449]
 
-[node name="Ucheta" type="Sprite2D" parent="." unique_id=304713322]
-position = Vector2(1, -460)
+[node name="Title" type="Sprite2D" parent="." unique_id=304713322]
+position = Vector2(1, -441.00003)
+scale = Vector2(1.317, 1.321)
 texture = ExtResource("1_7vcoo")
 
 [node name="Back" type="TextureRect" parent="." unique_id=1758784951]
 offset_left = -894.0
 offset_top = -515.0
 offset_right = -564.0
-offset_bottom = -293.0
+offset_bottom = -227.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_1oag3")
 
@@ -25,8 +29,35 @@ texture = ExtResource("2_1oag3")
 layout_mode = 0
 offset_left = 18.0
 offset_top = 8.0
-offset_right = 330.0
-offset_bottom = 218.0
+offset_right = 175.0
+offset_bottom = 144.0
+scale = Vector2(2, 2)
 flat = true
 
+[node name="Panel" type="Panel" parent="." unique_id=271244739]
+offset_left = -896.0
+offset_top = -322.0
+offset_right = 893.0
+offset_bottom = 362.0
+
+[node name="BG_Button" type="Button" parent="." unique_id=1191714280]
+offset_left = -870.0
+offset_top = -300.0
+offset_right = -638.0
+offset_bottom = -202.0
+theme_override_colors/font_color = Color(0.9236369, 0.9089682, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_4n0su")
+text = "BACKGROUND
+30 Clicks"
+
+[node name="Label" type="Label" parent="." unique_id=1091007983]
+offset_left = -897.0
+offset_top = 370.0
+offset_right = -704.0
+offset_bottom = 458.0
+theme_override_font_sizes/font_size = 64
+text = "Clicks:"
+
 [connection signal="pressed" from="Back/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BG_Button" to="." method="_on_bg_button_pressed"]

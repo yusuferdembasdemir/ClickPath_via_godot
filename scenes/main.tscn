@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd3n1spiul0b" path="res://codes/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://b2du4m6hygmbp" path="res://art/ucheta.PNG" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://drxmalgx0n54g" path="res://art/bacg.png" id="3_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=515319257]
 script = ExtResource("1_o5qli")
@@ -14,8 +15,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.5
-offset_top = -48.0
+offset_left = -130.0
+offset_top = -60.0
 offset_right = 128.5
 offset_bottom = 48.0
 grow_horizontal = 2
@@ -28,17 +29,18 @@ offset_left = -125.0
 offset_top = -477.0
 offset_right = 68.0
 offset_bottom = -389.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "Clicks:"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=564312447]
+[node name="ShopButton" type="TextureRect" parent="." unique_id=564312447]
 offset_left = 601.0
 offset_top = 353.0
 offset_right = 891.0
 offset_bottom = 467.0
 texture = ExtResource("2_0wfyh")
 
-[node name="Button" type="Button" parent="TextureRect" unique_id=1937296369]
+[node name="Button" type="Button" parent="ShopButton" unique_id=1937296369]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -46,6 +48,19 @@ offset_right = 289.0
 offset_bottom = 111.0
 flat = true
 
+[node name="BGLayer" type="CanvasLayer" parent="." unique_id=132377277]
+layer = -1
+
+[node name="Bg" type="TextureRect" parent="BGLayer" unique_id=1945160622]
+self_modulate = Color(0.69, 0.69, 0.69, 1)
+offset_left = -41.0
+offset_top = -87.0
+offset_right = 1925.0
+offset_bottom = 1107.0
+texture = ExtResource("3_sugp2")
+expand_mode = 1
+stretch_mode = 6
+
 [connection signal="pressed" from="ClickButton" to="." method="_on_mainclick_button_pressed"]
 [connection signal="pressed" from="ClickButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="TextureRect/Button" to="." method="_on_shopbutton_pressed"]
+[connection signal="pressed" from="ShopButton/Button" to="." method="_on_shopbutton_pressed"]
