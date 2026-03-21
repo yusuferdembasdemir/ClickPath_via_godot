@@ -19,7 +19,7 @@ Main.gd: Ana oyun döngüsü ve UI güncellemeleri.
 
 Shopscene.gd: Market etkileşimleri ve satın alma kontrolü.
 
------------ENGLİSH------------
+-----------ENGLISH------------
 
 Clicking: Collect points (Clicks) by clicking on the screen.
 
