@@ -1,5 +1,6 @@
 
 ---------TÜRKÇE-----------------
+
 Tıklama Mekaniği: Ekrana tıklayarak puan (Clicks) toplayın.
 
 Market Sistemi: Kazandığınız puanlarla yeni arka planlar ve geliştirmeler satın alın.
@@ -19,6 +20,7 @@ Main.gd: Ana oyun döngüsü ve UI güncellemeleri.
 Shopscene.gd: Market etkileşimleri ve satın alma kontrolü.
 
 -----------ENGLİSH------------
+
 Clicking: Collect points (Clicks) by clicking on the screen.
 
 Shop System: Purchase new backgrounds and upgrades using your earned points.
