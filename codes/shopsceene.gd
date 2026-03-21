@@ -17,6 +17,7 @@ func _on_sbg_button_pressed() -> void:
 		global.click_count -= 30
 		global.sbg_unlocked = true
 		$ShopBG/BG.visible = true
+		$SBGButton.queue_free()
 		
 		if has_node("SBGButton"):
 			$SBGButton.queue_free()
