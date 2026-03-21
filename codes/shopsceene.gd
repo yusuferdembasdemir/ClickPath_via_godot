@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var sbg_button = $SBGButton
+
 func _ready():
 	update_label()
 	if global.bg_unlocked == true:
@@ -9,6 +11,8 @@ func _ready():
 	
 	if global.sbg_unlocked == true:
 		$ShopBG/BG.visible = true
+		if has_node("SBGButton"):
+			$SBGButton.queue_free()
 	else:
 		$ShopBG/BG.visible = false
 
@@ -17,7 +21,6 @@ func _on_sbg_button_pressed() -> void:
 		global.click_count -= 30
 		global.sbg_unlocked = true
 		$ShopBG/BG.visible = true
-		$SBGButton.queue_free()
 		
 		if has_node("SBGButton"):
 			$SBGButton.queue_free()
@@ -29,24 +32,21 @@ func _on_sbg_button_pressed() -> void:
 		print("Not enough clickos yet huh")
 
 func _on_button_pressed() -> void:
-	# Back to main scene
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 		
 func update_label():
 	$Label.text = "Clicks: " + str(global.click_count)
 
 func _on_bg_button_pressed() -> void:
-	# Logic for purchasing the background
 	if global.click_count >= 30:
 		global.click_count -= 30
-		global.bg_unlocked = true # Save the purchase state
+		global.bg_unlocked = true
 		
-		# Remove only the button, not the whole scene
 		if has_node("BG_Button"):
 			$BG_Button.queue_free()
 		
-		update_label() # Refresh UI immediately
-		global.save_game() # Save the purchase permanently
+		update_label()
+		global.save_game()
 		print("bg un loc ked")
 	else:
 		print("Not enough clicks yet mannn!")
