@@ -1,4 +1,4 @@
-ClickPath
+
 ---------TÜRKÇE-----------------
 Tıklama Mekaniği: Ekrana tıklayarak puan (Clicks) toplayın.
 
