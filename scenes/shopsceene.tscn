@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://rq8i3slqjmcr" path="res://codes/shopsceene.gd" id="1_4n0su"]
 [ext_resource type="Texture2D" uid="uid://b2du4m6hygmbp" path="res://art/ucheta.PNG" id="1_7vcoo"]
 [ext_resource type="Texture2D" uid="uid://b1rrh58mndpn" path="res://art/zs-removebg-preview.png" id="2_1oag3"]
+[ext_resource type="Texture2D" uid="uid://drxmalgx0n54g" path="res://art/bacg.png" id="4_pcedi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n0su"]
 bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcedi"]
+bg_color = Color(1, 0.65882355, 0, 1)
 
 [node name="Shopsceene" type="Node2D" unique_id=1451452833]
 script = ExtResource("1_4n0su")
@@ -38,26 +42,50 @@ flat = true
 offset_left = -896.0
 offset_top = -322.0
 offset_right = 893.0
-offset_bottom = 362.0
+offset_bottom = 423.0
 
 [node name="BG_Button" type="Button" parent="." unique_id=1191714280]
-offset_left = -870.0
+offset_left = -869.0
 offset_top = -300.0
-offset_right = -638.0
+offset_right = -619.0
 offset_bottom = -202.0
 theme_override_colors/font_color = Color(0.9236369, 0.9089682, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_4n0su")
-text = "BACKGROUND
+text = "Background
+
 30 Clicks"
 
 [node name="Label" type="Label" parent="." unique_id=1091007983]
 offset_left = -897.0
-offset_top = 370.0
+offset_top = 424.0
 offset_right = -704.0
-offset_bottom = 458.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "Clicks:"
 
+[node name="ShopBG" type="CanvasLayer" parent="." unique_id=79267271]
+layer = -1
+
+[node name="BG" type="TextureRect" parent="ShopBG" unique_id=976505186]
+self_modulate = Color(1, 1, 1, 0.4392157)
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1085.0
+texture = ExtResource("4_pcedi")
+
+[node name="SBGButton" type="Button" parent="." unique_id=504217068]
+offset_left = -579.0
+offset_top = -301.0
+offset_right = -329.0
+offset_bottom = -202.0
+theme_override_colors/font_color = Color(0.6, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_pcedi")
+text = "Shop Background
+30 Clicks"
+
 [connection signal="pressed" from="Back/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BG_Button" to="." method="_on_bg_button_pressed"]
+[connection signal="pressed" from="SBGButton" to="." method="_on_sbg_button_pressed"]

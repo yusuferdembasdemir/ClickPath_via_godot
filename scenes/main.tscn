@@ -53,14 +53,32 @@ layer = -1
 
 [node name="Bg" type="TextureRect" parent="BGLayer" unique_id=1945160622]
 self_modulate = Color(0.69, 0.69, 0.69, 1)
-offset_left = -41.0
+offset_left = -25.0
 offset_top = -87.0
-offset_right = 1925.0
+offset_right = 1941.0
 offset_bottom = 1107.0
 texture = ExtResource("3_sugp2")
 expand_mode = 1
 stretch_mode = 6
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1314985121]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(483, 100)
+unresizable = true
+ok_button_text = "Reset"
+dialog_text = "Are you sure?You will lost everything you have done so far!"
+
+[node name="Reset" type="Button" parent="." unique_id=1418651098]
+offset_left = -935.0
+offset_top = 432.0
+offset_right = -668.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 32
+text = "Reset Everything"
+
 [connection signal="pressed" from="ClickButton" to="." method="_on_mainclick_button_pressed"]
 [connection signal="pressed" from="ClickButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ShopButton/Button" to="." method="_on_shopbutton_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

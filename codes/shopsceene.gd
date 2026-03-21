@@ -2,12 +2,30 @@ extends Node2D
 
 func _ready():
 	update_label()
-	# Check if the button should exist when entering the shop
 	if global.bg_unlocked == true:
-		# Using find_child for safety in case the node path is slightly different
 		var btn = find_child("BG_Button")
 		if btn:
 			btn.queue_free()
+	
+	if global.sbg_unlocked == true:
+		$ShopBG/BG.visible = true
+	else:
+		$ShopBG/BG.visible = false
+
+func _on_sbg_button_pressed() -> void:
+	if global.click_count >= 30:
+		global.click_count -= 30
+		global.sbg_unlocked = true
+		$ShopBG/BG.visible = true
+		
+		if has_node("SBGButton"):
+			$SBGButton.queue_free()
+			
+		update_label()
+		global.save_game()
+		print("bg un loc ked")
+	else:
+		print("Not enough clickos yet huh")
 
 func _on_button_pressed() -> void:
 	# Back to main scene
@@ -27,6 +45,11 @@ func _on_bg_button_pressed() -> void:
 			$BG_Button.queue_free()
 		
 		update_label() # Refresh UI immediately
+		global.save_game() # Save the purchase permanently
 		print("bg un loc ked")
 	else:
 		print("Not enough clicks yet mannn!")
+
+
+		
+	
